@@ -1,8 +1,8 @@
 # ERP Vendas BI
 
-Projeto completo de Engenharia de Dados, Modelagem Relacional, Data Warehouse e Business Intelligence desenvolvido para simular um ambiente corporativo de vendas.
+Projeto de Banco de Dados e Business Intelligence desenvolvido para simular um ambiente comercial completo, contemplando modelagem relacional, geração de dados fictícios, construção de views analíticas e criação de dashboards no Power BI.
 
-O projeto contempla desde a modelagem OLTP de um ERP comercial até a construção de indicadores analíticos consumidos pelo Power BI.
+O objetivo é demonstrar conhecimentos em SQL Server, modelagem de dados, análise de indicadores de negócio e visualização de dados.
 
 ---
 
@@ -11,28 +11,25 @@ O projeto contempla desde a modelagem OLTP de um ERP comercial até a construç�
 Demonstrar conhecimentos práticos em:
 
 - SQL Server
-- Modelagem de Dados Relacional
-- Data Warehouse (Star Schema)
-- ETL com Python
+- Modelagem Relacional
+- Normalização de Dados
+- Integridade Referencial
+- Views Analíticas
 - Business Intelligence
 - Power BI
 - Git e GitHub
-- Governança e Qualidade de Dados
 
 ---
 
 ## Arquitetura da Solução
 
 ```text
-ERP_Vendas_BI (OLTP)
-        │
-        ▼
-Python ETL
-        │
-        ▼
-Data Warehouse (DW)
-        │
-        ▼
+SQL Server
+    │
+    ▼
+Views Analíticas
+    │
+    ▼
 Power BI
 ```
 
@@ -42,47 +39,80 @@ Power BI
 
 | Tecnologia | Finalidade |
 |------------|------------|
-| SQL Server | Banco transacional (OLTP) |
-| Python | ETL e automações |
-| Pandas | Transformação de dados |
-| SQLAlchemy | Integração com banco |
-| Power BI | Dashboards e Analytics |
-| Git | Versionamento |
-| GitHub | Repositório e documentação |
+| SQL Server | Banco de Dados Relacional |
+| T-SQL | Scripts, Views e Seeds |
+| Power BI | Dashboards e Visualização de Dados |
+| Git | Controle de Versão |
+| GitHub | Hospedagem e Documentação |
 
 ---
 
-## Modelagem de Dados
-
-### Schemas
+## Estrutura do Projeto
 
 ```text
-seg -> Segurança
-cad -> Cadastros
-com -> Comercial
-est -> Estoque
-fin -> Financeiro
+ERP_Vendas_BI
+│
+├── database
+│   ├── Tables
+│   ├── indexes
+│   ├── seed
+│   ├── Views
+│   └── 01_create_database.sql
+│
+├── docs
+│   ├── DER.png
+│   └── modelo-negocio.md
+│
+├── powerbi
+│   └── Dashboard ERP_Vendas_BI.pbix
+│
+├── LICENSE
+└── README.md
+```
+
+---
+
+## Modelo de Dados
+
+O banco foi estruturado utilizando múltiplos schemas para separação das responsabilidades:
+
+```text
+seg → Segurança
+cad → Cadastros
+com → Comercial
+est → Estoque
 ```
 
 ### Principais Entidades
 
 ```text
 Cliente
-Produto
-Categoria
-Vendedor
+Cidade
+Estado
 Loja
+Vendedor
+Categoria
+Produto
 Pedido
 ItemPedido
 ProdutoLoja
 MovimentacaoEstoque
+TipoMovimentacao
+```
+
+### DER
+
+O diagrama entidade-relacionamento pode ser encontrado em:
+
+```text
+docs/DER.png
 ```
 
 ---
 
 ## Massa de Dados
 
-Dataset fictício criado para análises de negócio.
+Dataset fictício desenvolvido para permitir análises comerciais e operacionais.
 
 ### Volumes
 
@@ -104,34 +134,33 @@ Dataset fictício criado para análises de negócio.
 
 ## Funcionalidades Implementadas
 
+### Cadastros
+
+- Clientes
+- Vendedores
+- Produtos
+- Categorias
+- Lojas
+- Cidades
+- Estados
+
 ### Comercial
 
-- Cadastro de clientes
-- Cadastro de vendedores
-- Controle de pedidos
-- Histórico de vendas
+- Controle de Pedidos
+- Itens de Pedido
+- Histórico de Vendas
 
 ### Estoque
 
-- Cadastro de produtos
-- Controle de estoque
-- Movimentação de estoque
-- Produtos por loja
-
-### Analytics
-
-- Faturamento Mensal
-- Top Produtos
-- Top Clientes
-- Performance de Vendedores
-- Vendas por Cidade
-- Giro de Produtos
-- Dashboard Executivo
-- Top Produtos por Cidade
+- Controle de Estoque por Loja
+- Movimentações de Estoque
+- Tipos de Movimentação
 
 ---
 
 ## Views Analíticas
+
+O projeto possui uma camada analítica criada através de views SQL para consumo direto no Power BI.
 
 ```text
 vw_FaturamentoMensal
@@ -146,76 +175,35 @@ vw_TopProdutosCidade
 
 ---
 
-## Estrutura do Projeto
+## Dashboard Comercial
+
+Dashboard desenvolvido no Power BI utilizando as views analíticas do projeto.
+
+### Indicadores
+
+- Faturamento Total
+- Quantidade de Vendas
+- Média de Vendas
+- Top Produtos
+- Vendas por Categoria
+- Faturamento por Filial
+- Evolução Mensal do Faturamento
+
+Arquivo:
 
 ```text
-ERP_Vendas_BI
-│
-├── database
-│   ├── tables
-│   ├── seed
-│   ├── views
-│   ├── procedures
-│   ├── functions
-│   ├── triggers
-│   └── indexes
-│
-├── python
-│   ├── etl
-│   └── scripts
-│
-├── dw
-│
-├── powerbi
-│
-├── docs
-│
-└── README.md
+powerbi/Dashboard ERP_Vendas_BI.pbix
 ```
 
 ---
 
-## Dashboards
+## Documentação
 
-### Dashboard Executivo
-
-Indicadores:
-
-- Faturamento Total
-- Ticket Médio
-- Clientes Ativos
-- Pedidos
-- Produtos Vendidos
-- Margem Bruta
-
-### Dashboard Comercial
-
-Indicadores:
-
-- Top Clientes
-- Top Produtos
-- Performance de Vendedores
-- Vendas por Cidade
-
-### Dashboard Estoque
-
-Indicadores:
-
-- Giro de Produtos
-- Produtos sem Venda
-- Estoque Crítico
-- Cobertura de Estoque
-
----
-
-## Próximas Evoluções
-
-- [ ] Data Warehouse Dimensional
-- [ ] Pipeline ETL Automatizado
-- [ ] KPIs Financeiros
-- [ ] Deploy em Ambiente Cloud
-- [ ] Dashboard Mobile
-- [ ] Testes de Qualidade de Dados
+```text
+docs/
+├── DER.png
+└── modelo-negocio.md
+```
 
 ---
 
@@ -225,4 +213,5 @@ Indicadores:
 
 Analista de SAC Jr | Estudante de Dados e Business Intelligence
 
-LinkedIn: https://www.linkedin.com/in/valmir-lucena/
+LinkedIn:
+https://www.linkedin.com/in/valmir-lucena/
