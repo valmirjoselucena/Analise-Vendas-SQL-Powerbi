@@ -6,6 +6,9 @@ O objetivo é demonstrar conhecimentos em SQL Server, modelagem de dados, análi
 
 ---
 
+<img width="1577" height="883" alt="image" src="https://github.com/user-attachments/assets/958e4209-e34e-409f-8755-e51fba286855" />
+
+
 ## Objetivos
 
 Demonstrar conhecimentos práticos em:
