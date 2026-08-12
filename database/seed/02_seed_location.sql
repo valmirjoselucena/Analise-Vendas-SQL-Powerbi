@@ -150,3 +150,19 @@ SELECT
 FROM cad.Cidade C
 WHERE C.NomeCidade = 'Aparecida de Goiânia';
 GO
+
+
+
+
+USE [ERP_Vendas_BI]
+GO
+SET IDENTITY_INSERT [cad].[Estado] ON 
+GO
+INSERT [cad].[Estado] ([IdEstado], [UF], [NomeEstado], [DataCadastro], [IdUsuarioCadastro], [DataAlteracao], [IdUsuarioAlteracao], [DataExclusao], [IdUsuarioExclusao], [RegistroAtivo]) VALUES (2, N'GO', N'Goiás', CAST(N'2026-07-30T13:59:39.3266667' AS DateTime2), 1, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [cad].[Estado] ([IdEstado], [UF], [NomeEstado], [DataCadastro], [IdUsuarioCadastro], [DataAlteracao], [IdUsuarioAlteracao], [DataExclusao], [IdUsuarioExclusao], [RegistroAtivo]) VALUES (3, N'RJ', N'Rio de Janeiro', CAST(N'2026-07-30T13:59:39.3266667' AS DateTime2), 1, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [cad].[Estado] ([IdEstado], [UF], [NomeEstado], [DataCadastro], [IdUsuarioCadastro], [DataAlteracao], [IdUsuarioAlteracao], [DataExclusao], [IdUsuarioExclusao], [RegistroAtivo]) VALUES (4, N'SP', N'São Paulo', CAST(N'2026-07-30T13:59:39.3266667' AS DateTime2), 1, NULL, NULL, NULL, NULL, 1)
+GO
+SET IDENTITY_INSERT [cad].[Estado] OFF
+GO
