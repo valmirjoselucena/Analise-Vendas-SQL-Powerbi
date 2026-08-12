@@ -1,52 +1,52 @@
-# ERP Vendas BI
+# 📊 ERP Vendas BI
 
-Projeto de Banco de Dados e Business Intelligence desenvolvido para simular um ambiente comercial completo, contemplando modelagem relacional, geração de dados fictícios, construção de views analíticas e criação de dashboards no Power BI.
+Projeto de Business Intelligence desenvolvido para simular um ambiente corporativo de vendas, contemplando modelagem relacional em SQL Server, carga de dados fictícios e construção de dashboards analíticos no Power BI.
 
-O objetivo é demonstrar conhecimentos em SQL Server, modelagem de dados, análise de indicadores de negócio e visualização de dados.
+O projeto foi criado com o objetivo de demonstrar conhecimentos em modelagem de banco de dados, consultas SQL, gestão de dados comerciais e desenvolvimento de indicadores para apoio à tomada de decisão.
 
 ---
 
-<img width="1577" height="883" alt="image" src="https://github.com/user-attachments/assets/958e4209-e34e-409f-8755-e51fba286855" />
+## Dashboard Comercial
 
+<img width="1577" alt="Dashboard Comercial" src="https://github.com/user-attachments/assets/958e4209-e34e-409f-8755-e51fba286855" />
+
+---
 
 ## Objetivos
 
-Demonstrar conhecimentos práticos em:
+- Desenvolver uma base de dados comercial estruturada.
+- Aplicar conceitos de modelagem relacional.
+- Simular operações de vendas e estoque.
+- Construir indicadores estratégicos.
+- Desenvolver dashboards executivos no Power BI.
+- Aplicar boas práticas de versionamento com Git e GitHub.
+
+---
+
+## Tecnologias Utilizadas
 
 - SQL Server
-- Modelagem Relacional
-- Normalização de Dados
-- Integridade Referencial
-- Views Analíticas
-- Business Intelligence
+- T-SQL
 - Power BI
-- Git e GitHub
+- Git
+- GitHub
 
 ---
 
 ## Arquitetura da Solução
 
 ```text
-SQL Server
-    │
-    ▼
-Views Analíticas
-    │
-    ▼
-Power BI
+Banco de Dados SQL Server
+            │
+            ▼
+ Tratamento e Modelagem
+            │
+            ▼
+         Power BI
+            │
+            ▼
+ Dashboard Comercial
 ```
-
----
-
-## Tecnologias Utilizadas
-
-| Tecnologia | Finalidade |
-|------------|------------|
-| SQL Server | Banco de Dados Relacional |
-| T-SQL | Scripts, Views e Seeds |
-| Power BI | Dashboards e Visualização de Dados |
-| Git | Controle de Versão |
-| GitHub | Hospedagem e Documentação |
 
 ---
 
@@ -59,7 +59,6 @@ ERP_Vendas_BI
 │   ├── Tables
 │   ├── indexes
 │   ├── seed
-│   ├── Views
 │   └── 01_create_database.sql
 │
 ├── docs
@@ -77,7 +76,9 @@ ERP_Vendas_BI
 
 ## Modelo de Dados
 
-O banco foi estruturado utilizando múltiplos schemas para separação das responsabilidades:
+O banco foi organizado por domínios de negócio utilizando schemas para separação de responsabilidades.
+
+### Schemas
 
 ```text
 seg → Segurança
@@ -86,7 +87,7 @@ com → Comercial
 est → Estoque
 ```
 
-### Principais Entidades
+### Entidades Principais
 
 ```text
 Cliente
@@ -103,9 +104,11 @@ MovimentacaoEstoque
 TipoMovimentacao
 ```
 
-### DER
+---
 
-O diagrama entidade-relacionamento pode ser encontrado em:
+## Diagrama Entidade Relacionamento
+
+O modelo relacional completo está disponível em:
 
 ```text
 docs/DER.png
@@ -115,98 +118,130 @@ docs/DER.png
 
 ## Massa de Dados
 
-Dataset fictício desenvolvido para permitir análises comerciais e operacionais.
+O projeto possui dados fictícios para permitir análises comerciais e operacionais.
 
-### Volumes
+### Dados disponíveis
 
-```text
-✅ 5 Perfis
-✅ 1 Usuário Administrador
-✅ 4 Cidades
-✅ 2 Lojas
-✅ 10 Vendedores
-✅ 30 Clientes
-✅ 100 Produtos
-✅ Estoque por Loja
-✅ Movimentações de Estoque
-✅ Pedidos
-✅ Itens de Pedido
-```
+- 5 Perfis de Segurança
+- 1 Usuário Administrador
+- 27 Estados
+- Cidades
+- 2 Lojas
+- 10 Vendedores
+- 30 Clientes
+- 100 Produtos
+- Estoque por Loja
+- Movimentações de Estoque
+- Pedidos
+- Itens de Pedido
 
 ---
 
-## Funcionalidades Implementadas
+## Funcionalidades
 
 ### Cadastros
 
 - Clientes
-- Vendedores
 - Produtos
 - Categorias
-- Lojas
 - Cidades
 - Estados
+- Lojas
+- Vendedores
 
 ### Comercial
 
-- Controle de Pedidos
+- Gestão de Pedidos
 - Itens de Pedido
 - Histórico de Vendas
 
 ### Estoque
 
 - Controle de Estoque por Loja
-- Movimentações de Estoque
+- Entrada e Saída de Produtos
 - Tipos de Movimentação
+- Movimentação de Inventário
 
 ---
 
-## Views Analíticas
+## Dashboard Power BI
 
-O projeto possui uma camada analítica criada através de views SQL para consumo direto no Power BI.
-
-```text
-vw_FaturamentoMensal
-vw_TopProdutos
-vw_TopClientes
-vw_PerformanceVendedores
-vw_VendasPorCidade
-vw_GiroProdutos
-vw_DashboardExecutivo
-vw_TopProdutosCidade
-```
-
----
-
-## Dashboard Comercial
-
-Dashboard desenvolvido no Power BI utilizando as views analíticas do projeto.
+O dashboard foi desenvolvido para acompanhar os principais indicadores de desempenho comercial.
 
 ### Indicadores
 
 - Faturamento Total
-- Quantidade de Vendas
-- Média de Vendas
-- Top Produtos
+- Quantidade de Pedidos
+- Ticket Médio
+- Produtos Mais Vendidos
 - Vendas por Categoria
-- Faturamento por Filial
-- Evolução Mensal do Faturamento
+- Faturamento por Loja
+- Evolução do Faturamento
+- Participação por Produto
 
-Arquivo:
+---
+
+## Conhecimentos Aplicados
+
+### Banco de Dados
+
+- Modelagem Relacional
+- Chaves Primárias e Estrangeiras
+- Integridade Referencial
+- Scripts DDL e DML
+- Organização por Schemas
+
+### Business Intelligence
+
+- Construção de KPIs
+- Storytelling com Dados
+- Visualização de Dados
+- Dashboards Gerenciais
+
+### Desenvolvimento
+
+- Git
+- GitHub
+- Versionamento de Código
+- Estruturação de Projetos
+
+---
+
+## Como Executar
+
+### Criar o Banco
+
+Execute:
+
+```text
+database/01_create_database.sql
+```
+
+### Criar Estrutura
+
+Execute os scripts da pasta:
+
+```text
+database/Tables
+```
+
+### Popular os Dados
+
+Execute os scripts da pasta:
+
+```text
+database/seed
+```
+
+### Abrir o Dashboard
+
+Abra o arquivo:
 
 ```text
 powerbi/Dashboard ERP_Vendas_BI.pbix
 ```
 
----
-
-## Documentação
-
-```text
-docs/
-├── DER.png
-└── modelo-negocio.md
-```
+e atualize a conexão de dados.
 
 ---
 
@@ -214,7 +249,10 @@ docs/
 
 **Valmir José da Silva de Lucena**
 
-Analista de SAC Jr | Estudante de Dados e Business Intelligence
+Analista de SAC | Estudos em Dados, SQL e Business Intelligence
 
-LinkedIn:
+🔗 LinkedIn  
 https://www.linkedin.com/in/valmir-lucena/
+
+🔗 GitHub  
+https://github.com/valmirjoselucena
